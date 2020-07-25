@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin{% endblock %}
+
+{% block monTitre%} Voiture {{ voiture.immatriculation }} {% endblock %}
+
+{% block body %}
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <a href="{{path('admin')}}" class="btn btn-secondary">Retour</a>
+        <input type="submit" class="btn btn-success"
+        {% if isModif %}
+            value="Modifier"
+        {% else %}
+            value="Ajouter"
+        {% endif %}
+        >
+    {{ form_end(form) }}
+
+{% endblock %}

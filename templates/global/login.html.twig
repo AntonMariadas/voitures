@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Controller global{% endblock %}
+
+{% block monTitre %} Login {% endblock %}
+
+{% block body %}
+
+{% if error %}
+    <div class="alert alert-danger">
+        Le login et le mdp ne sont pas bons !
+    </div>
+{% endif %}
+<form action="{{path('login')}}" method="post">
+    <label>Nom d'utilisateur</label> <br>
+    <input type="text" name="_username" class="form-control" {% if error %} value="{{ lastUserName }}" {% endif %}><br>
+    <label>Mot de passe</label> <br>
+    <input type="password" name="_password" class="form-control"><br>
+    <input type="submit" value="Se logger" class="btn btn-success">
+</form>
+
+
+{% endblock %}
